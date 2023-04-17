@@ -31,17 +31,31 @@ def chart(listC):
     years = list( map( lambda row : row["ReleasedYear"], listC) )
     units = list( map( lambda row : row["UnitsSold"], listC) )
     console = list( map( lambda row : row["ConsoleName"], listC) )
-    # print(years)
-    # print(units)
+    
     fig, ax = plt.subplots()
-    #Colocamos una etiqueta en el eje Y
-    ax.set_ylabel('Unidades vendidas')
-    #Colocamos una etiqueta en el eje X
-    ax.set_title('Año de lanzamiento')
-    #Creamos la grafica de barras utilizando 'paises' como eje X y 'ventas' como eje y.
-    plt.bar(years, units)
-    #plt.savefig('barras_simple.png')
-    #Finalmente mostramos la grafica con el metodo show()
+    bar_width = 2.0  
+    ax.set_title('Millones de consolas vendidas por su fecha de lanzamiento')
+    ax.set_xlabel("Año de lanzamiento")    
+    ax.set_ylabel('Unidades vendidas')    
+    
+    plt.bar(years, units)    
     plt.show()
+
+    plt.title('Millones de consolas vendidas por su fecha de lanzamiento')
     plt.bar(console, units)
     plt.show()
+
+    #grafica de pie
+    plt.title('Millones de consolas vendidas por su fecha de lanzamiento')
+    plt.pie(units, labels=years, autopct="%0.1f %%")
+    plt.show()
+
+    #grafica de dispersión
+    plt.title('Millones de consolas vendidas por su fecha de lanzamiento')
+    plt.scatter(years, units)
+    plt.show()
+
+    #grafica de burbujas --> esta es una varioacion del scatter
+    plt.scatter(years, units, s=units)
+    plt.show()
+
