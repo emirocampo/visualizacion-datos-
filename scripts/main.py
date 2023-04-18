@@ -1,7 +1,7 @@
 import data
 
 
-pathFile = "../consoles.csv"
+pathFile = "../data/consoles.csv"
 
 companies = {
     1 : "Atari",
@@ -35,6 +35,7 @@ def main():
     listS = data.sortList(listR)
     #print(listS)
     data.chart(listS)
+
 
 
 if __name__ == "__main__":
